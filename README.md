@@ -1,5 +1,4 @@
 # jquery-filter
-# MySql-Entity-Class-Generator
 
 ## About
 jquery Filter: filter selection and return selected options only
