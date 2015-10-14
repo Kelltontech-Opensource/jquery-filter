@@ -4,7 +4,7 @@
 jquery Filter: filter selection and return selected options only
 
 ##Options
-    <input class="filter pull" data-val="" data-name="" type="checkbox" name="city" >
+    <input class="filter pull"  type="checkbox" name="city" val="gurgaon">
  
 
 	var filter = $('#mixfilters').filter(
