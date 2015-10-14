@@ -4,10 +4,10 @@
 jquery Filter: filter selection and return selected options only
 
 ##Options
-#<div class="filters padding-hz10" id="mixfilters">
+# 1- <div class="filters padding-hz10" id="mixfilters">
 	
-    #					<input class="filter pull" data-val="" data-name="" type="checkbox" name="city" >
-#</div>
+    2 - <input class="filter pull" data-val="" data-name="" type="checkbox" name="city" >
+# 3 - </div>
 
 	var filter = $('#mixfilters').filter(
 		{
