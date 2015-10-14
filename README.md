@@ -4,10 +4,13 @@
 jquery Filter: filter selection and return selected options only
 
 ##Options
-	filter(
+	var filter = filter(
 		{
 			debug : true/ false;
 			});
+			
+## Methods 
+	filter.appliedFilters();
 ## Features
 
 This plugin can be used to get the selected filters only.
@@ -19,9 +22,11 @@ Easy debugging as it contains debug flag, If flag is true it consoles all availa
 Easy to contribute, easy tp understand.
 
 ## How to Use 
-	1 - filters = $('#mixfilters').filter(); - call plugin with filter.
-	2 - filters variable will contain complete object of filters
-	3 - filters.appliedFilters(); - appliedFilters method will return all selected options.
+	1 - Add attribute name and vlaue in input types. 
+	2 - Selected Options Json format will be something like {name1:[val1,val2],nmae2:[val1,val2]}
+	3 - Filters = $('#mixfilters').filter(); - call plugin with filter.
+	4 - Filters variable will contain complete object of filters
+	5 - Filters.appliedFilters(); - appliedFilters method will return all selected options.
 ### download from github follow the steps to configure html call method with options.
 
 ## Requirement 
