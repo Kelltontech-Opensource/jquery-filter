@@ -1,0 +1,70 @@
+(function($) {
+$.fn.filter = function( options ) {
+    options = options || {};
+    // Establish our default settings
+    options = $.extend({
+        debug : false, // default false
+        debugMessage : 'Selected options will be shown in console as you have passed debug: true in plugin',
+
+    }, options);
+    if(options.debug){
+        console.log('options ', options);
+        $(this).prepend(options.debugMessage);
+    }
+    var objectData = objectData || {};
+    objectData.options = options;
+    objectData.objectSelect = objectData.objectSelect || {};
+    $($(this).find('input')).click(function() {
+        setName = $(this).attr('name');
+        setVal = $(this).val();
+        if(this.type == 'checkbox' || this.type == 'radio'){
+
+        }else{
+            throw 'undefind input type'; // exception of non radio / checkbox input type
+        }
+        if ($(this).is(':checked')) {
+              if (objectData.objectSelect.hasOwnProperty(setName) === true) { 
+                if(this.type == 'radio'){
+                    objectData.objectSelect[setName] = [setVal];
+                }else{
+                    objectData.objectSelect[setName].push(setVal);
+                }
+              } else { 
+                objectData.objectSelect[setName] = [setVal];
+              }
+        } else if (!$(this).is(':checked') && this.type == 'checkbox') { 
+              if (objectData.objectSelect[setName].indexOf(setVal) === 0) {
+                  if(Object.keys(objectData.objectSelect[setName]).length === 1){
+                        delete objectData.objectSelect[setName];
+                  } else {
+                      objectData.objectSelect[setName].splice(objectData.objectSelect[setName].indexOf(setVal), 1);
+                  }
+              } else if (objectData.objectSelect[setName].indexOf(setVal) > 0) {
+                objectData.objectSelect[setName].splice(objectData.objectSelect[setName].indexOf(setVal), 1);
+              }
+        }
+        if (options.debug) {
+            console.log('action performed on '+this.type+' selected >>'+ $(this).is(':checked') , this);
+            console.log(setName, ' >> ', setVal);
+        }
+
+    });
+    
+    this.appliedFilters = function(){
+        return objectData.objectSelect; // returns selected filters only
+    }
+    this.options = function(){
+        return objectData.options; // returns options only 
+    }
+    this.checkDebug = function(){
+        if(options.debug){
+            console.log('options ', options);
+            $(this).prepend(options.debugMessage);
+        }
+        return true;
+    }
+    return this;
+
+}
+
+}(jQuery));
