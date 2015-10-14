@@ -20,12 +20,12 @@ jquery Filter: filter selection and return selected options only
         </li>
 	</ul>
 </div>
-<script>
+
 	var filter = $('#mixfilters').filter(
 		{
 			debug : true/ false;
 			});
-			</script>
+		
 ## Methods 
 	filter.appliedFilters();
 ## Features
