@@ -4,11 +4,28 @@
 jquery Filter: filter selection and return selected options only
 
 ##Options
-	var filter = filter(
+<div class="filters padding-hz10" id="mixfilters">
+	<h4 class="no-margin padding-vr10 course-menu-head">Refine:</h4>
+    <h5 class="margin-top10-margin-bottom0">City:</h5>
+    <ul class="list-unstyled no-margin filtmedia">
+    	<li>
+    		<div class="checkbox no-padding">
+    			<div class="radio i-checks">
+    				<label class="filtelem">
+    					<input class="filter pull" data-val="" data-name="" type="checkbox" name="city" value="Gurgaon">
+                        &nbsp;&nbsp; Gurgaon
+                    </label>
+                </div>
+            </div>
+        </li>
+	</ul>
+</div>
+<script>
+	var filter = $('#mixfilters').filter(
 		{
 			debug : true/ false;
 			});
-			
+			</script>
 ## Methods 
 	filter.appliedFilters();
 ## Features
