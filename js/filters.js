@@ -5,6 +5,8 @@ $.fn.filter = function( options ) {
     options = $.extend({
         debug : false, // default false
         debugMessage : 'Selected options will be shown in console as you have passed debug: true in plugin',
+        separator : "&&",
+        assigner : "="
 
     }, options);
     if(options.debug){
@@ -62,6 +64,36 @@ $.fn.filter = function( options ) {
             $(this).prepend(options.debugMessage);
         }
         return true;
+    }
+    this.generateUri = function(){ // it generates URl string with selected
+        var queryObject = queryObject || objectData.objectSelect;
+        var createUrlAttr = '';
+        var nextParam = false;
+        $.each(queryObject, function (key, value) {
+            if (!nextParam) {
+                nextParam = true;
+                createUrlAttr = key + options.assigner + value;
+            } else {
+                createUrlAttr = createUrlAttr + options.separator + key + options.assigner + value;
+            }
+        });
+        return createUrlAttr;
+    }
+    this.assignSelection = function(objectSelect){
+        objectData.objectSelect = objectData.objectSelect || objectSelect;
+        var createUrlAttr = '';
+        var nextParam = false;
+        var str = '';
+        console.log(queryObject);
+        $.each(queryObject, function (key, value) {
+            if (!nextParam) {
+                nextParam = true;
+                createUrlAttr = key + options.assigner + value;
+            } else {
+                createUrlAttr = createUrlAttr + options.separator + key + options.assigner + value;
+            }
+        });
+        return createUrlAttr;
     }
     return this;
 
