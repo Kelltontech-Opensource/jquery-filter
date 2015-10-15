@@ -10,8 +10,11 @@ jquery Filter: filter selection and return selected options only
 	var filter = $('#mixfilters').filter(
 		{
 			debug : true/ false,
-			 separator : "&&", default value when we call generateUri method to get url string
-        	assigner : "=" default value when we call generateUri method to get url string
+			 separator : "&&", //default value when we call generateUri method to get url string
+        	assigner : "=", //default value when we call generateUri method to get url string
+        	afterSelect: function(){
+				console.log(filters.generateUri()); 
+			}
 			});
 		
 ## Methods 

@@ -83,7 +83,9 @@
 <script type="text/javascript">
 	var filters  = filters || {};
 	$(document).ready(function(){
-		filters = $('#mixfilters').filter({debug:false});
+		filters = $('#mixfilters').filter({debug:true,afterSelect: function(){
+			console.log(filters.generateUri());
+		}});
 	});
 </script>
 

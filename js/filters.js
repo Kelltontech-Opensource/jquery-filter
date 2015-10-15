@@ -6,7 +6,12 @@ $.fn.filter = function( options ) {
         debug : false, // default false
         debugMessage : 'Selected options will be shown in console as you have passed debug: true in plugin',
         separator : "&&",
-        assigner : "="
+        assigner : "=",
+        afterSelect : function(){
+            if(options.debug){
+                console.log('in after select');
+            }
+        }
 
     }, options);
     if(options.debug){
@@ -45,6 +50,7 @@ $.fn.filter = function( options ) {
                 objectData.objectSelect[setName].splice(objectData.objectSelect[setName].indexOf(setVal), 1);
               }
         }
+        options.afterSelect();
         if (options.debug) {
             console.log('action performed on '+this.type+' selected >>'+ $(this).is(':checked') , this);
             console.log(setName, ' >> ', setVal);
