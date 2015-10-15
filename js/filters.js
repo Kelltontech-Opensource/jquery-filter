@@ -79,22 +79,6 @@ $.fn.filter = function( options ) {
         });
         return createUrlAttr;
     }
-    this.assignSelection = function(objectSelect){
-        objectData.objectSelect = objectData.objectSelect || objectSelect;
-        var createUrlAttr = '';
-        var nextParam = false;
-        var str = '';
-        console.log(queryObject);
-        $.each(queryObject, function (key, value) {
-            if (!nextParam) {
-                nextParam = true;
-                createUrlAttr = key + options.assigner + value;
-            } else {
-                createUrlAttr = createUrlAttr + options.separator + key + options.assigner + value;
-            }
-        });
-        return createUrlAttr;
-    }
     return this;
 
 }
