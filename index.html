@@ -1,0 +1,92 @@
+<html>
+<head>
+
+<title>Filters - Filtering a HTML table using radio buttons and checkboxes</title>
+</head>
+<body>	
+<div class="filters padding-hz10" id="mixfilters">
+	<h4 class="no-margin padding-vr10 course-menu-head">Refine:</h4>
+    <h5 class="margin-top10-margin-bottom0">City:</h5>
+    <ul class="list-unstyled no-margin filtmedia">
+    	<li>
+    		<div class="checkbox no-padding">
+    			<div class="radio i-checks">
+    				<label class="filtelem">
+    					<input class="filter pull" data-val="" data-name="" type="checkbox" name="city" value="Gurgaon">
+                        &nbsp;&nbsp; Gurgaon
+                    </label>
+                </div>
+            </div>
+        </li>
+        <li>
+        	<div class="checkbox no-margin no-padding">
+        		<div class="radio i-checks">
+        			<label class="filtelem"> 
+	                   <input class="filter pull" data-val="" data-name="" type="checkbox" name="city" value="Delhi">
+                        &nbsp;&nbsp;Delhi 
+                    </label>
+                </div>
+            </div>
+        </li>
+    </ul>
+	<h5 class="margin-top10-margin-bottom0 selfhide">Gender :</h5>
+		<ul class="list-unstyled no-margin filtmedia selfhide">
+			<li>
+	    		<div class="checkbox no-padding">
+	    			<div class="radio i-checks">
+	    				<label class="filtelem">
+	    					<input class="filter pull" data-val="" data-name="" type="checkbox" name="gender" value="men">
+	                        &nbsp;&nbsp; Men
+	                    </label>
+	                </div>
+	            </div>
+	        </li>
+	        <li>
+	        	<div class="checkbox no-margin no-padding">
+	        		<div class="radio i-checks">
+	        			<label class="filtelem"> 
+		                   <input class="filter pull" data-val="" data-name="" type="checkbox" name="gender" value="women">
+	                        &nbsp;&nbsp;Women 
+	                    </label>
+	                </div>
+	            </div>
+	        </li>
+			</ul>
+
+			<h5 class="margin-top10-margin-bottom0 selfhide">Batch Type :</h5>
+		<ul class="list-unstyled no-margin filtmedia selfhide">
+			<li>
+	    		<div class="checkbox no-padding">
+	    			<div class="radio i-checks">
+	    				<label class="filtelem">
+	    					<input class="filter pull" data-val="" data-name="" type="radio" name="price" value="below100">
+	                        &nbsp;&nbsp; > 100
+	                    </label>
+	                </div>
+	            </div>
+	        </li>
+	        <li>
+	        	<div class="checkbox no-margin no-padding">
+	        		<div class="radio i-checks">
+	        			<label class="filtelem"> 
+		                   <input class="filter pull" data-val="" data-name="" type="radio" name="price" value="above100">
+	                        &nbsp;&nbsp; < 100
+	                    </label>
+	                </div>
+	            </div>
+	        </li>
+		</ul>
+
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="js/filters.min.1.0.js"></script>
+<script type="text/javascript">
+	var filters  = filters || {};
+	$(document).ready(function(){
+		filters = $('#mixfilters').filter({debug:true,afterSelect: function(){
+			console.log(filters.generateUri());
+		}});
+	});
+</script>
+
+</html>
