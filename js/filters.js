@@ -5,7 +5,7 @@ $.fn.filter = function( options ) {
     options = $.extend({
         debug : false, // default false
         debugMessage : 'Selected options will be shown in console as you have passed debug: true in plugin',
-        separator : "&&",
+        separator : "&",
         assigner : "=",
         afterSelect : function(){
             if(options.debug){
