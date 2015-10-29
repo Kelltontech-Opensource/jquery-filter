@@ -85,26 +85,38 @@ $.fn.filter = function( options ) {
         });
         return createUrlAttr;
     }
-    this.markSelected = function(selectionValue){ // it generates URl string with selected
-        var queryObject = queryObject || objectData.objectSelect;
-        var createUrlAttr = '';
-        var nextParam = false;
-        $.each(queryObject, function (key, value) {
-            if (!nextParam) {
-                nextParam = true;
-                createUrlAttr = key + options.assigner + value;
-            } else {
-                createUrlAttr = createUrlAttr + options.separator + key + options.assigner + value;
-            }
-        });
-        return createUrlAttr;
+    this.markSelected = function(object){ // it generates URl string with selected
+        this.resetFilters();
+        if(typeof(object) == 'object'){
+            $.each(object, function(key, value) {
+                if($.isArray(value)){
+                    $.each(value,function(k,v){
+                        if(!markSelectedEntity($('[name='+key+']'),v)){
+                            throw 'Wrong data inserted'+ ' in '+key+' at location' +' '+k; // exception for not available data 
+                        }
+                    });
+                }else{
+                    throw 'Wrong data inserted'+ ' '+key; // exception for wrong json
+                }
+                
+            });
+            objectData.objectSelect = object;
+            return true;
+        }else{
+            throw 'Parameter passed is not object';
+        }
     }
     var checkValue = function (selector,val){
         var returns = false;
         selector.each(function(k,v){
-            if(v.value == val){
-                returns = true;
-            };
+            (v.value == val) ? returns = true : '';
+        });
+        return returns;
+    }
+    var markSelectedEntity = function (selector,val){
+        var returns = false;
+        selector.each(function(k,v){
+            (v.value == val) ? returns = v.checked = true : '';
         });
         return returns;
     }
@@ -126,6 +138,11 @@ $.fn.filter = function( options ) {
         }else{
             throw 'Parameter passed is not object';
         }
+    }
+    this.resetFilters = function(){
+        objectData.objectSelect = {};
+        $(this).find('input').attr('checked',false);
+        return true;
     }
     return this;
 

@@ -20,7 +20,10 @@ jquery Filter: filter selection and return selected options only
 ## Methods 
 	filter.appliedFilters(); it return object of selected filters
 	filter.generateUri(); it returns url string
-	filter.validateJson(Validjson); it returns true or exception need to pass valid json given from appliedFilters() method
+	filter.validateJson(Validjson); it returns true or exception need to pass valid json given from filter.appliedFilters() method
+	filter.markSelected(); reset mark inputs selected on basis of external json. Json must be verified using validateJson method.
+
+	filter.resetFilters(); reset all filters
 ## Features
 
 This plugin can be used to get the selected filters only.
