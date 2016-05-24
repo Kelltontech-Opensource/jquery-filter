@@ -40,7 +40,7 @@ Easy to contribute, easy tp understand.
 	3 - Filters = $('#mixfilters').filter(); - call plugin with filter.
 	4 - Filters variable will contain complete object of filters
 	5 - Filters.appliedFilters(); - appliedFilters method will return all selected options.
-### download from github follow the steps to configure html call method with options.
+### Download from github follow the steps to configure html call method with options.
 
 ## Requirement 
   jQuery 1.7+
