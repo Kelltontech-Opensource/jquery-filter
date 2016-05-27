@@ -130,7 +130,7 @@ $.fn.filter = function( options ) {
                         }
                     });
                 }else{
-                    throw 'Wrong data inserted'+ ' '+key; // exception for wrong json
+                    throw 'Wrong data inserted'+ ' '+key; // exception for wrong json  <in future try catch is needed here>
                 }
                 
             });
